@@ -1,10 +1,10 @@
 class ClimbAttempt {
-  final String grade;
-  final List<String> styleTags;
-  final int attempts;
-  final String result; // e.g. "topped" or "fell"
-  final String? thoughts;
-  final DateTime date;
+  String grade;
+  List<String> styleTags;
+  int attempts;
+  String result; // e.g. "topped" or "fell"
+  String? thoughts;
+  DateTime date;
 
     ClimbAttempt({
     required this.grade,
