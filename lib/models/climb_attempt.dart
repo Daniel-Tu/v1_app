@@ -2,7 +2,7 @@ class ClimbAttempt {
   String grade;
   List<String> styleTags;
   int attempts;
-  String result; // e.g. "topped" or "fell"
+  String result; // e.g. "topped", "flash", "in progress"
   String? thoughts;
   DateTime date;
 

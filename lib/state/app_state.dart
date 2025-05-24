@@ -1,25 +1,32 @@
 import 'package:flutter/material.dart';
-import '../models/xp_profile.dart';
+import '../models/user.dart';
 import '../models/workout_session.dart';
 import '../models/climb_attempt.dart';
 import '../models/quest.dart';
 import '../mock_data/mock_climb_attempts.dart';
 import '../mock_data/mock_quests.dart';
 
-
 class AppState extends ChangeNotifier {
-  XPProfile xpProfile;
+  User user;
   WorkoutSession? currentSession;
   List<ClimbAttempt> loggedClimbs;
   List<Quest> quests;
 
   AppState()
-      : xpProfile = XPProfile(
+      : user = User(
+          userId: 'demoUser1',
+          username: 'Neil',
           totalXP: 0,
           level: 1,
           streakCount: 0,
-          xpHistory: [],
+          generalGrade: 'V3',
+          maxGrade: 'V5',
+          flashGrade: 'V4',
           activeQuests: mockQuests,
+          weeklyXP: {},
+          monthlyXP: {},
+          friendIds: [],
+          incomingRequests: [],
         ),
         loggedClimbs = mockClimbs,
         currentSession = null,
@@ -49,15 +56,15 @@ class AppState extends ChangeNotifier {
   void endSession() {
     if (currentSession != null) {
       currentSession!.completed = true;
-      xpProfile.totalXP += currentSession!.sessionXP;
-      xpProfile.xpHistory.add(currentSession!.sessionXP);
+      user.totalXP += currentSession!.sessionXP;
+      // _updateWeeklyXP(currentSession!); // future: aggregation logic
       currentSession = null;
       notifyListeners();
     }
   }
 
   int _calculateXP(ClimbAttempt climb) {
-    return 20 + climb.attempts.clamp(1, 10); // example logic
+    return 20 + climb.attempts.clamp(1, 10); // Example XP logic
   }
 
   void _updateQuestProgress(ClimbAttempt climb) {

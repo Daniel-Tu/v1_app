@@ -3,7 +3,7 @@ import '../models/quest.dart';
 final List<Quest> mockQuests = [
   Quest(
     id: "q1",
-    description: "Climb 3 Overhang routes",
+    name: "Climb 3 Overhang routes",
     type: "style",
     styleTag: "Overhang",
     grade: null,
@@ -13,7 +13,7 @@ final List<Quest> mockQuests = [
   ),
   Quest(
     id: "q2",
-    description: "Top a V5",
+    name: "Top a V5",
     type: "grade",
     styleTag: null,
     grade: "V5",
@@ -23,7 +23,7 @@ final List<Quest> mockQuests = [
   ),
   Quest(
     id: "q3",
-    description: "Log 10 climbs this week",
+    name: "Log 10 climbs this week",
     type: "count",
     styleTag: null,
     grade: null,
@@ -33,7 +33,7 @@ final List<Quest> mockQuests = [
   ),
   Quest(
     id: "q4",
-    description: "Climb 2 Slab problems",
+    name: "Climb 2 Slab problems",
     type: "style",
     styleTag: "Slab",
     grade: null,
@@ -43,7 +43,7 @@ final List<Quest> mockQuests = [
   ),
   Quest(
     id: "q5",
-    description: "Top 5 climbs V3 or harder",
+    name: "Top 5 climbs V3 or harder",
     type: "grade",
     styleTag: null,
     grade: "V3",
